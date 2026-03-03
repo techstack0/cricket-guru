@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𝗖𝗥𝗜𝗖𝗞𝗘𝗧 𝗚𝗨𝗥𝗨 🏏</title>
+
+<!-- ================= META PIXEL ================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', 'YOUR_PIXEL_ID'); // 🔥 Apna Pixel ID daalo
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<!-- ============================================== -->
+
+<style>
+body {
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background: url('background.jpg') no-repeat center center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.overlay {
+background: rgba(0,0,0,0.88);
+padding:30px;
+border-radius:15px;
+text-align:center;
+width:90%;
+max-width:400px;
+border:2px solid #ff6a00;
+box-shadow:0 0 30px #ff6a00;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+from { box-shadow: 0 0 15px #ff6a00; }
+to { box-shadow: 0 0 35px #ff3c00; }
+}
+
+.logo {
+width:120px;
+height:120px;
+border-radius:50%;
+border:3px solid #ff6a00;
+margin-bottom:20px;
+object-fit:cover;
+}
+
+h1 {
+color:#ff6a00;
+margin-bottom:10px;
+font-size:22px;
+}
+
+.subscribers {
+color:#ffd700;
+margin-bottom:15px;
+font-weight:bold;
+}
+
+.note {
+background:#1a1a1a;
+padding:10px;
+border-radius:8px;
+margin-bottom:15px;
+font-size:14px;
+border:1px solid #ff6a00;
+}
+
+.timer {
+font-size:42px;
+color:#ff3c00;
+margin:15px 0;
+font-weight:bold;
+}
+
+button {
+background:#ff6a00;
+border:none;
+padding:15px;
+width:100%;
+border-radius:30px;
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 0 20px #ff6a00;
+transition:0.3s;
+}
+
+button:hover {
+background:#ff3c00;
+box-shadow:0 0 35px #ff3c00;
+transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<img src="logo.png" class="logo" alt="Logo">
+
+<h1>𝗖𝗥𝗜𝗖𝗞𝗘𝗧 𝗚𝗨𝗥𝗨 🏏</h1>
+
+<div class="note">
+NOTE: I'm not a fixer, I'm a Sports Analyst ✔
+</div>
+
+<div class="timer" id="countdown">00:30</div>
+
+<button onclick="goTelegram()">Join Telegram Channel</button>
+
+</div>
+
+<script>
+
+// 🔥 30 SECOND TIMER
+var timeLeft = 30;
+var countdown = document.getElementById("countdown");
+
+var timer = setInterval(function(){
+
+var seconds = timeLeft < 10 ? "0" + timeLeft : timeLeft;
+countdown.innerHTML = "00:" + seconds;
+
+if(timeLeft <= 0){
+clearInterval(timer);
+
+// 🔥 TIMER COMPLETE EVENT
+fbq('trackCustom', 'TimerCompleted');
+
+// Redirect to Telegram
+window.location.href = "https://t.me/YOUR_TELEGRAM_LINK";
+}
+
+timeLeft--;
+},1000);
+
+
+// 🔥 BUTTON CLICK EVENT
+function goTelegram(){
+
+// Track Lead
+fbq('track', 'Lead');
+
+// Redirect
+window.location.href = "https://t.me/YOUR_TELEGRAM_LINK";
+}
+
+</script>
+
+</body>
+</html>
